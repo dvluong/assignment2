@@ -1,0 +1,31 @@
+package edu.csupomona.cs.cs356.assignment_2;
+
+import java.awt.Component;
+
+import javax.swing.JTree;
+import javax.swing.tree.DefaultTreeCellRenderer;
+
+public class TreeCellRenderer extends DefaultTreeCellRenderer{
+	public Component getTreeCellRendererComponent(JTree tree,
+			Object value,
+			boolean selected,
+			boolean expanded,
+			boolean leaf,
+			int row,
+			boolean hasFocus) {
+
+			TreeCellRenderer renderer = super.getTreeCellRenderer(tree,
+			value,
+			selected,
+			expanded,
+			leaf,
+			row,
+			hasFocus);
+
+			renderer.setLeafIcon("folder.gif");;
+
+			return renderer;
+
+			}
+
+}

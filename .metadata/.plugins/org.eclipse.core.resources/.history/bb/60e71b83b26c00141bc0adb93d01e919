@@ -1,0 +1,28 @@
+package edu.csupomona.cs.cs356.assignment_2;
+
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTree;
+import javax.swing.UIManager;
+
+public class Main {
+  public static void main(String[] argv) throws Exception {
+    Icon leafIcon = new ImageIcon("leaf.gif");
+    Icon openIcon = new ImageIcon("open.gif");
+    Icon closedIcon = new ImageIcon("closed.gif");
+
+    //UIManager.put("Tree.leafIcon", leafIcon);
+   // UIManager.put("Tree.openIcon", openIcon);
+    //UIManager.put("Tree.closedIcon", closedIcon);
+    
+    JTree tree = new JTree();
+
+    JFrame f = new JFrame();
+    f.add(new JScrollPane(tree));
+    f.setSize(300, 300);
+    f.setVisible(true);
+
+  }
+}

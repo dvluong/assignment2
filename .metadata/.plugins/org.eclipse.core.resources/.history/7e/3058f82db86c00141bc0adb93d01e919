@@ -1,0 +1,54 @@
+package edu.csupomona.cs.cs356.assignment_2;
+
+import java.awt.BorderLayout;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JTree;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeCellRenderer;
+import javax.swing.tree.DefaultTreeModel;
+
+public class MainClass extends JFrame {
+  JTree tree;
+
+  DefaultTreeModel treeModel;
+
+  public MainClass() {
+    super("Tree Test Example");
+    setSize(200, 150);
+    setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+  }
+
+  public void init() {
+    DefaultMutableTreeNode root = new DefaultMutableTreeNode("Root");
+    DefaultMutableTreeNode subroot = new DefaultMutableTreeNode("SubRoot");
+    DefaultMutableTreeNode leaf1 = new DefaultMutableTreeNode("Leaf 1");
+    DefaultMutableTreeNode leaf2 = new DefaultMutableTreeNode("Leaf 2");
+
+    treeModel = new DefaultTreeModel(root);
+    tree = new JTree(treeModel);
+
+    treeModel.insertNodeInto(subroot, root, 0);
+    subroot.add(leaf1);
+    root.add(leaf2);
+
+    tree.putClientProperty("JTree.lineStyle", "Angled");
+    getContentPane().add(tree, BorderLayout.CENTER);
+
+    DefaultTreeCellRenderer renderer = 
+      (DefaultTreeCellRenderer)tree.getCellRenderer();
+    renderer.setClosedIcon(new ImageIcon("door.closed.gif"));
+    renderer.setOpenIcon(new ImageIcon("door.open.gif"));
+    renderer.setLeafIcon(new ImageIcon("world.gif"));
+
+  
+  }
+
+  public static void main(String args[]) {
+    MainClass tt = new MainClass();
+    tt.init();
+    tt.setVisible(true);
+  }
+}         

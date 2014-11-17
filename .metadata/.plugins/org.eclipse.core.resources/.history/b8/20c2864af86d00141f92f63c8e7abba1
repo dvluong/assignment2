@@ -1,0 +1,11 @@
+package edu.csupomona.cs.cs356.assignment_2;
+
+public class test {
+
+	public static void main(String[] args) {
+		GroupComposite test = new GroupComposite();
+		test.add("you");
+		test.dataMessage();
+	}
+
+}
