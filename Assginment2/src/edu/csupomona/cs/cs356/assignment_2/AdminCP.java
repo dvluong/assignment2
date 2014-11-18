@@ -19,7 +19,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.TreeNode;
 
 import java.awt.Color;
 import java.io.IOException;
@@ -29,8 +28,6 @@ import javax.swing.JTextArea;
 import java.awt.Toolkit;
 import java.awt.SystemColor;
 
-import javax.swing.event.TreeSelectionListener;
-import javax.swing.event.TreeSelectionEvent;
 
 @SuppressWarnings("serial")
 public class AdminCP extends DefaultTreeCellRenderer{
@@ -136,8 +133,8 @@ public class AdminCP extends DefaultTreeCellRenderer{
 				super.paintComponent(g);
 			}
 		};
-		
-		
+		GroupComposite group = new GroupComposite("Root");
+		group.add(group);
 		tree.setCellRenderer(new DefaultTreeCellRenderer() {
             private Icon closedIcon = UIManager.getIcon("Tree.closedIcon");
             @Override
@@ -184,8 +181,8 @@ public class AdminCP extends DefaultTreeCellRenderer{
 						                    return c;
 						                }
 						        });
+								
 								model.insertNodeInto(newNode, selectedNode, selectedNode.getChildCount());
-							
 								model.reload();
 								JOptionPane.showMessageDialog(null, "Added User: " + storeUser);
 							} else {
@@ -205,7 +202,8 @@ public class AdminCP extends DefaultTreeCellRenderer{
 						if (selectedNode != null) {
 							if (e.getSource() == btnAddGroup && !textAddGroup.getText().trim().equals("")) {
 								storeGroup = textAddGroup.getText();
-								GroupComposite.getInstance().add(storeGroup);
+								group.add(new GroupComposite(storeGroup));
+								
 								tree.setCellRenderer(new DefaultTreeCellRenderer() {
 						            private Icon closedIcon = UIManager.getIcon("Tree.closedIcon");						            
 						            @Override
@@ -222,6 +220,7 @@ public class AdminCP extends DefaultTreeCellRenderer{
 						        });
 								model.insertNodeInto(newNode, selectedNode, selectedNode.getChildCount());
 								model.reload();
+								group.print();
 								JOptionPane.showMessageDialog(null, "Added Group: " + storeGroup);
 							} else {
 								JOptionPane.showMessageDialog(null, "Please enter a Group Name.");
@@ -258,7 +257,7 @@ public class AdminCP extends DefaultTreeCellRenderer{
 					
 					//Object nodeInfo = selectedNode.getUserObject();
 				} else {
-					System.out.println("not working you fuck");
+					System.out.println("not working");
 				}
 						 
 			}
@@ -303,7 +302,6 @@ public class AdminCP extends DefaultTreeCellRenderer{
 		};
 		btnGroupTotal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				GroupComposite.getInstance().dataMessage();
 			}
 		});
 		btnGroupTotal.setForeground(Color.BLACK);

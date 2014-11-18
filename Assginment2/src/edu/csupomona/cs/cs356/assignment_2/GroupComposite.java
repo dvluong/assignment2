@@ -2,23 +2,20 @@ package edu.csupomona.cs.cs356.assignment_2;
 
 import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
+public class GroupComposite implements Component {
+	ArrayList<Component> list = new ArrayList<Component>();
+	String group;
 
-public class GroupComposite implements Component{
-	ArrayList<String> list = new ArrayList<String>();
-	private static final GroupComposite instance = new GroupComposite();
-	private GroupComposite(){
-		
+	public GroupComposite(String newGroup) {
+		group = newGroup;
 	}
-	public static GroupComposite getInstance(){
-		return instance;
+
+	public String getGroup() {
+		return group;
 	}
-	public void add(String s){
-		list.add(s);
+
+	public void add(Component group) {
+		list.add(group);
 	}
-	public void dataMessage() {
-		for (int a = 0; a < list.size(); a++){
-			JOptionPane.showMessageDialog(null, "List of Groups: " + list.get(a));
-		}
-	}
+
 }

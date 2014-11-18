@@ -1,0 +1,39 @@
+package edu.csupomona.cs.cs356.assignment_2;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class GroupComposite implements Component {
+	ArrayList<Component> list = new ArrayList<Component>();
+	String group;
+
+	public GroupComposite(String newGroup) {
+		group = newGroup;
+	}
+
+	public String getGroup() {
+		return group;
+	}
+
+	public void add(Component group) {
+		list.add(group);
+	}
+
+	public void print() {
+		//System.out.println(getGroup());
+
+		// Cycles through and prints any Songs or SongGroups added
+		// to this SongGroups ArrayList songComponents
+
+		Iterator<Component> groupIterator = list.iterator();
+
+		while (groupIterator.hasNext()) {
+
+			Component groupInfo = (Component) groupIterator.next();
+
+			System.out.println(groupInfo);
+
+		}
+
+	}
+}
