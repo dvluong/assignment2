@@ -1,42 +1,20 @@
-<<<<<<< HEAD
 INDEX VERSION 1.127+C:\Users\Dabid\Documents\GitHub\assignment2\.metadata\.plugins\org.eclipse.jdt.core
-3979199014.index
 3680216941.index
-2519515603.index
-141777580.index
-312990884.index
-649836812.index
-1036784131.index
-4102616070.index
-1694049503.index
-3912272638.index
-1799180511.index
-3138343590.index
-3755311897.index
-537080750.index
-4271798703.index
-62973594.index
-3529204997.index
-3613905025.index
-891229049.index
-=======
-INDEX VERSION 1.127+C:\Users\Ramensoldier\Documents\GitHub\assignment2\.metadata\.plugins\org.eclipse.jdt.core
-4004133052.index
 1832949699.index
-2743915309.index
-1028199574.index
-2193799835.index
-3095963708.index
 1574318262.index
-1604200090.index
+2486087126.index
 828133061.index
 3991718231.index
-3454125809.index
 2338776811.index
-834584462.index
-1065832147.index
-2486087126.index
-3598813974.index
+2193799835.index
+4004133052.index
+2743915309.index
 1877021558.index
+1028199574.index
+3598813974.index
+3454125809.index
+1604200090.index
+1065832147.index
+834584462.index
 1947431546.index
->>>>>>> e2a65ebe988323f8840b547450e17d5b0f79db4c
+3095963708.index

@@ -1,11 +1,12 @@
 package edu.csupomona.cs.cs356.assignment_2;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GroupComposite implements Component {
-	ArrayList<Component> list = new ArrayList<Component>();
+	List<Component> list = new ArrayList<Component>();
 	String group;
-
+	List<GroupComposite> groups = new ArrayList<GroupComposite>();
 	public GroupComposite(String newGroup) {
 		group = newGroup;
 	}
@@ -14,11 +15,12 @@ public class GroupComposite implements Component {
 		return group;
 	}
 
-	public void add(Component group) {
-		list.add(group);
+	public void add(Component user) {
+		list.add(user);
 	}
-<<<<<<< HEAD
-=======
+	
+	public void add(GroupComposite group){
+		groups.add(group);
+	}
 
->>>>>>> e2a65ebe988323f8840b547450e17d5b0f79db4c
 }

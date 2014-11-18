@@ -1,0 +1,28 @@
+package edu.csupomona.cs.cs356.assignment_2;
+
+import java.util.ArrayList;
+import java.util.Observer;
+
+public class GrabFollowers implements Subject{
+	private ArrayList<Observer> observers;
+	private String user;
+	public GrabFollowers(){
+		observers = new ArrayList<Observer>();
+	}
+	
+	public void register(Observer newFollower) {
+		observers.add(newFollower);
+	}
+
+	
+	public void notifyObserver() {
+		for (Observer observer : observers){
+			observer.update(null, user);
+		}
+	}
+
+	public void setFollow(String user){
+		this.user = user;
+		notifyObserver();
+	}
+}

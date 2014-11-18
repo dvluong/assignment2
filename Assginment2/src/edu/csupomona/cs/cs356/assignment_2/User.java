@@ -11,5 +11,8 @@ public class User implements Component {
 	public String getUser() {
 		return user;
 	}
-
+	
+	public String toString(){
+		return user;
+	}
 }
