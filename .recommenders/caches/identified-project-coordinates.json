@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 [[{"location":"C:\\Users\\Dabid\\Desktop","type":"JRE","hints":{"EXECUTION_ENVIRONMENT":"JavaSE-1.8"}},"ABSENT"],[{"location":"C:\\Users\\Dabid\\Documents\\GitHub\\assignment2\\Assginment2","type":"PROJECT","hints":{"PROJECT_NAME":"Assginment2"}},"Assginment2:Assginment2:1.0.0"]]
+=======
+[[{"location":"C:\\Program Files\\Java\\jre1.8.0_25","type":"JRE","hints":{"EXECUTION_ENVIRONMENT":"JavaSE-1.8"}},"jre:jre:1.8.0"],[{"location":"C:\\Users\\Ramensoldier\\Documents\\GitHub\\assignment2\\Assginment2","type":"PROJECT","hints":{"PROJECT_NAME":"Assginment2"}},"Assginment2:Assginment2:1.0.0"],[{"location":"C:\\Program Files\\Java\\jre1.8.0_25","type":"JRE","hints":{}},"jre:jre:1.8.0"],[{"location":"C:\\Users\\Dabid\\Desktop","type":"JRE","hints":{"EXECUTION_ENVIRONMENT":"JavaSE-1.8"}},"ABSENT"]]
+>>>>>>> e2a65ebe988323f8840b547450e17d5b0f79db4c

@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<<<<<<< HEAD
 <listEntry value="/Assginment2/src/edu/csupomona/cs/cs356/assignment_2/test.java"/>
+=======
+<listEntry value="/Assginment2/src/edu/csupomona/cs/cs356/assignment_2/Test.java"/>
+>>>>>>> e2a65ebe988323f8840b547450e17d5b0f79db4c
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
 </listAttribute>
+<<<<<<< HEAD
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="edu.csupomona.cs.cs356.assignment_2.test"/>
+=======
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="edu.csupomona.cs.cs356.assignment_2.Test"/>
+>>>>>>> e2a65ebe988323f8840b547450e17d5b0f79db4c
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Assginment2"/>
 </launchConfiguration>

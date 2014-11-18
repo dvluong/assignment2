@@ -1,0 +1,306 @@
+package edu.csupomona.cs.cs356.assignment_2;
+
+import java.awt.Component;
+import java.awt.EventQueue;
+import java.awt.Graphics;
+
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTree;
+import javax.swing.UIManager;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+import javax.swing.tree.DefaultTreeCellRenderer;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreeSelectionModel;
+
+import java.awt.Color;
+import java.io.IOException;
+
+import javax.swing.JTextArea;
+
+import java.awt.Toolkit;
+import java.awt.SystemColor;
+
+public class AdminCP extends DefaultTreeCellRenderer{
+
+	private JFrame frame;
+	private String storeGroup;
+	private String storeUser;
+	
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) throws IOException {
+
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					AdminCP window = new AdminCP();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public AdminCP() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	@SuppressWarnings("serial")
+	private void initialize() {
+		frame = new JFrame("AdminControlPanel");
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(
+				AdminCP.class.getResource("/image/naruto.jpg")));
+		frame.getContentPane().setBackground(new Color(204, 102, 204));
+		frame.setBackground(Color.CYAN);
+		frame.setBounds(100, 100, 975, 599);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		UIManager.put("Tree.rendererFillBackground", false);
+
+		JButton btnOpenUserView = new JButton("Open User View") {
+			@Override
+			protected void paintComponent(Graphics g) {
+				if (!isOpaque() && getBackground().getAlpha() < 255) {
+					g.setColor(getBackground());
+					g.fillRect(0, 0, getWidth(), getHeight());
+				}
+				super.paintComponent(g);
+			}
+		};
+		btnOpenUserView.setForeground(Color.BLACK);
+		btnOpenUserView.setContentAreaFilled(false);
+		btnOpenUserView.setBackground(new Color(200, 100, 200, 200));
+		btnOpenUserView.setBounds(271, 95, 313, 39);
+		frame.getContentPane().add(btnOpenUserView);
+
+		JButton btnUserTotal = new JButton("User Total") {
+			@Override
+			protected void paintComponent(Graphics g) {
+				if (!isOpaque() && getBackground().getAlpha() < 255) {
+					g.setColor(getBackground());
+					g.fillRect(0, 0, getWidth(), getHeight());
+				}
+				super.paintComponent(g);
+			}
+		};
+		btnUserTotal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnUserTotal.setForeground(Color.BLACK);
+		btnUserTotal.setContentAreaFilled(false);
+		btnUserTotal.setBackground(new Color(200, 100, 200, 200));
+		btnUserTotal.setBounds(270, 302, 156, 39);
+		frame.getContentPane().add(btnUserTotal);
+
+		JButton btnGroupTotal = new JButton("Group Total") {
+			@Override
+			protected void paintComponent(Graphics g) {
+				if (!isOpaque() && getBackground().getAlpha() < 255) {
+					g.setColor(getBackground());
+					g.fillRect(0, 0, getWidth(), getHeight());
+				}
+				super.paintComponent(g);
+			}
+		};
+		btnGroupTotal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnGroupTotal.setForeground(Color.BLACK);
+		btnGroupTotal.setContentAreaFilled(false);
+		btnGroupTotal.setBackground(new Color(200, 100, 200, 200));
+		btnGroupTotal.setBounds(428, 302, 156, 39);
+		frame.getContentPane().add(btnGroupTotal);
+		JButton btnTotalMsgs = new JButton("Total Messages") {
+			@Override
+			protected void paintComponent(Graphics g) {
+				if (!isOpaque() && getBackground().getAlpha() < 255) {
+					g.setColor(getBackground());
+					g.fillRect(0, 0, getWidth(), getHeight());
+				}
+				super.paintComponent(g);
+			}
+		};
+		btnTotalMsgs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnTotalMsgs.setForeground(Color.BLACK);
+		btnTotalMsgs.setContentAreaFilled(false);
+		btnTotalMsgs.setBackground(new Color(200, 100, 200, 200));
+		btnTotalMsgs.setBounds(270, 342, 156, 39);
+		frame.getContentPane().add(btnTotalMsgs);
+
+		JButton btnPositivePercentage = new JButton("Positive \rPercentage") {
+			@Override
+			protected void paintComponent(Graphics g) {
+				if (!isOpaque() && getBackground().getAlpha() < 255) {
+					g.setColor(getBackground());
+					g.fillRect(0, 0, getWidth(), getHeight());
+				}
+				super.paintComponent(g);
+			}
+		};
+		btnPositivePercentage.setForeground(Color.BLACK);
+		btnPositivePercentage.setContentAreaFilled(false);
+		btnPositivePercentage.setBackground(new Color(200, 100, 200, 200));
+		btnPositivePercentage.setBounds(428, 342, 156, 39);
+		frame.getContentPane().add(btnPositivePercentage);
+
+		JTextArea textAddGroup = new JTextArea();
+		textAddGroup.setBackground(Color.LIGHT_GRAY);
+		textAddGroup.setBounds(750, 58, 132, 22);
+		frame.getContentPane().add(textAddGroup);
+
+		JButton btnAddGroup = new JButton("Add Group") {
+			@Override
+			protected void paintComponent(Graphics g) {
+				if (!isOpaque() && getBackground().getAlpha() < 255) {
+					g.setColor(getBackground());
+					g.fillRect(0, 0, getWidth(), getHeight());
+				}
+				super.paintComponent(g);
+			}
+		};
+
+		btnAddGroup.setForeground(Color.BLACK);
+		btnAddGroup.setContentAreaFilled(false);
+		btnAddGroup.setBackground(new Color(200, 100, 200, 200));
+		btnAddGroup.setBounds(584, 50, 156, 39);
+		frame.getContentPane().add(btnAddGroup);
+
+		JTextArea textAddUser = new JTextArea();
+		textAddUser.setBackground(Color.LIGHT_GRAY);
+		textAddUser.setBounds(750, 22, 132, 22);
+		frame.getContentPane().add(textAddUser);
+
+		JButton btnAddUser = new JButton("Add User") {
+			@Override
+			protected void paintComponent(Graphics g) {
+				if (!isOpaque() && getBackground().getAlpha() < 255) {
+					g.setColor(getBackground());
+					g.fillRect(0, 0, getWidth(), getHeight());
+				}
+				super.paintComponent(g);
+			}
+		};
+		btnAddUser.setForeground(Color.BLACK);
+		btnAddUser.setContentAreaFilled(false);
+		btnAddUser.setBackground(new Color(200, 100, 200, 200));
+		btnAddUser.setBounds(584, 11, 156, 39);
+		frame.getContentPane().add(btnAddUser);
+		Icon openIcon = new ImageIcon("open.gif");
+		UIManager.put("Tree.openIcon", openIcon);
+		DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode("Root");
+		DefaultTreeModel treeModel = new DefaultTreeModel(rootNode);
+		JTree tree = new JTree(treeModel) {
+			@Override
+			protected void paintComponent(Graphics g) {
+				if (!isOpaque() && getBackground().getAlpha() < 255) {
+					g.setColor(getBackground());
+					g.fillRect(0, 0, getWidth(), getHeight());
+				}
+				super.paintComponent(g);
+			}
+		};
+		
+		tree.setCellRenderer(new DefaultTreeCellRenderer() {
+            private Icon closedIcon = UIManager.getIcon("Tree.closedIcon");
+            private Icon saveIcon = UIManager.getIcon("OptionPane.informationIcon");
+            @Override
+            public Component getTreeCellRendererComponent(JTree tree,
+                    Object value, boolean selected, boolean expanded,
+                    boolean isLeaf, int row, boolean focused) {
+                Component c = super.getTreeCellRendererComponent(tree, value,
+                        selected, expanded, isLeaf, row, focused);
+                if (selected)
+                    setIcon(closedIcon);
+                
+                return c;
+            }
+        });
+		
+		tree.setRootVisible(true);
+		tree.setEditable(true);
+		tree.setForeground(SystemColor.activeCaptionText);
+		tree.setOpaque(false);
+		tree.setBackground(new Color(200, 100, 200, 200));
+		tree.setModel(treeModel); {
+			{
+				btnAddUser.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
+						DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
+						DefaultMutableTreeNode newNode = new DefaultMutableTreeNode (textAddUser.getText());
+						
+						if (selectedNode != null) {
+							if (e.getSource() == btnAddUser && !textAddUser.getText().trim().equals("")) {
+								storeUser = textAddUser.getText();
+								model.insertNodeInto(newNode, selectedNode, selectedNode.getChildCount());
+								System.out.println(storeUser);
+								model.reload();
+								JOptionPane.showMessageDialog(null, "Added User: " + storeUser);
+							} else {
+								JOptionPane.showMessageDialog(null, "Please enter a User Name.");
+							}
+						} else {
+							JOptionPane.showMessageDialog(null, "Please select a parent node to insert.");
+						}
+					}
+				});
+				btnAddGroup.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
+						DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
+						DefaultMutableTreeNode newNode = new DefaultMutableTreeNode (textAddGroup.getText());
+//						DefaultTreeCellRenderer renderer = (DefaultTreeCellRenderer) tree.getCellRenderer();
+//						renderer.setClosedIcon(closedIcon);
+//						tree.setCellRenderer(renderer);
+						
+						if (selectedNode != null) {
+							if (e.getSource() == btnAddGroup && !textAddGroup.getText().trim().equals("")) {
+								storeGroup = textAddGroup.getText();
+								
+								model.insertNodeInto(newNode, selectedNode, selectedNode.getChildCount());
+								model.reload();
+								JOptionPane.showMessageDialog(null, "Added Group: " + storeGroup);
+							} else {
+								JOptionPane.showMessageDialog(null, "Please enter a Group Name.");
+							}
+						} else {
+							JOptionPane.showMessageDialog(null, "Please select a parent node to insert.");
+						}
+					}
+
+				});
+			}
+
+		};
+		tree.setBounds(9, 9, 251, 532);
+		frame.getContentPane().add(tree);
+
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(AdminCP.class.getResource("/image/jibril3.jpg")));
+		label.setBounds(0, -31, 965, 632);
+		frame.getContentPane().add(label);
+	}
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.javaApplet">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/Assginment2/src/edu/csupomona/cs/cs356/assignment_2/MyTree.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<intAttribute key="org.eclipse.jdt.launching.APPLET_HEIGHT" value="200"/>
+<stringAttribute key="org.eclipse.jdt.launching.APPLET_NAME" value=""/>
+<intAttribute key="org.eclipse.jdt.launching.APPLET_WIDTH" value="200"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="edu.csupomona.cs.cs356.assignment_2.MyTree"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Assginment2"/>
+</launchConfiguration>

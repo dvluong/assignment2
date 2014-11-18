@@ -17,4 +17,8 @@ public class GroupComposite implements Component {
 	public void add(Component group) {
 		list.add(group);
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> e2a65ebe988323f8840b547450e17d5b0f79db4c
 }

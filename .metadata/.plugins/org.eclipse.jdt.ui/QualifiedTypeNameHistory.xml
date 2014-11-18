@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
+<<<<<<< HEAD
 <fullyQualifiedTypeName name="java.awt.Graphics"/>
+=======
+>>>>>>> e2a65ebe988323f8840b547450e17d5b0f79db4c
 <fullyQualifiedTypeName name="java.awt.Image"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="javax.swing.JLabel"/>
@@ -10,11 +13,15 @@
 <fullyQualifiedTypeName name="javax.swing.JPanel"/>
 <fullyQualifiedTypeName name="java.awt.Toolkit"/>
 <fullyQualifiedTypeName name="javax.swing.border.EmptyBorder"/>
+<<<<<<< HEAD
 <fullyQualifiedTypeName name="java.awt.BorderLayout"/>
+=======
+>>>>>>> e2a65ebe988323f8840b547450e17d5b0f79db4c
 <fullyQualifiedTypeName name="java.awt.Rectangle"/>
 <fullyQualifiedTypeName name="java.awt.Graphics2D"/>
 <fullyQualifiedTypeName name="java.awt.geom.Area"/>
 <fullyQualifiedTypeName name="java.awt.Point"/>
+<<<<<<< HEAD
 <fullyQualifiedTypeName name="javax.swing.tree.DefaultTreeCellRenderer"/>
 <fullyQualifiedTypeName name="javax.swing.tree.TreeCellRenderer"/>
 <fullyQualifiedTypeName name="javax.swing.UIManager"/>
@@ -24,4 +31,30 @@
 <fullyQualifiedTypeName name="java.util.Observer"/>
 <fullyQualifiedTypeName name="edu.csupomona.cs.cs356.assignment_2.GroupComposite"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+=======
+<fullyQualifiedTypeName name="javax.swing.tree.TreeCellRenderer"/>
+<fullyQualifiedTypeName name="javax.swing.UIManager"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.util.Set"/>
+<fullyQualifiedTypeName name="java.util.HashSet"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.awt.Font"/>
+<fullyQualifiedTypeName name="java.awt.BorderLayout"/>
+<fullyQualifiedTypeName name="javax.swing.JTextField"/>
+<fullyQualifiedTypeName name="javax.swing.tree.TreeSelectionModel"/>
+<fullyQualifiedTypeName name="javax.swing.tree.DefaultMutableTreeNode"/>
+<fullyQualifiedTypeName name="javax.swing.JScrollPane"/>
+<fullyQualifiedTypeName name="javax.swing.JTree"/>
+<fullyQualifiedTypeName name="javax.swing.Icon"/>
+<fullyQualifiedTypeName name="java.awt.Component"/>
+<fullyQualifiedTypeName name="java.awt.Graphics"/>
+<fullyQualifiedTypeName name="javax.swing.filechooser.FileView"/>
+<fullyQualifiedTypeName name="javax.swing.tree.DefaultTreeCellRenderer"/>
+<fullyQualifiedTypeName name="javax.swing.UIDefaults"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="edu.csupomona.cs.cs356.assignment_2.GroupComposite"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+>>>>>>> e2a65ebe988323f8840b547450e17d5b0f79db4c
 </qualifiedTypeNameHistroy>

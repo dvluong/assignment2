@@ -6,12 +6,15 @@
 		<item value="267" key="y"/>
 		<item value="506" key="height"/>
 	</section>
+<<<<<<< HEAD
 	<section name="org.eclipse.wb.internal.swing.model.property.editor.border.BorderDialog">
 		<item value="719" key="x"/>
 		<item value="482" key="width"/>
 		<item value="329" key="y"/>
 		<item value="381" key="height"/>
 	</section>
+=======
+>>>>>>> e2a65ebe988323f8840b547450e17d5b0f79db4c
 	<section name="org.eclipse.wb.internal.swing.laf.ui.AddCustomLookAndFeelDialog">
 		<item value="656" key="x"/>
 		<item value="607" key="width"/>
@@ -24,6 +27,7 @@
 		<item value="273" key="y"/>
 		<item value="493" key="height"/>
 	</section>
+<<<<<<< HEAD
 	<section name="org.eclipse.wb.internal.swing.model.property.editor.icon.ImagePropertyEditor$ImageDialog">
 		<item value="519" key="x"/>
 		<item value="881" key="width"/>
@@ -35,5 +39,12 @@
 		<item value="881" key="width"/>
 		<item value="230" key="y"/>
 		<item value="580" key="height"/>
+=======
+	<section name="org.eclipse.wb.internal.swing.model.property.editor.icon.IconPropertyEditor$ImageDialog">
+		<item value="519" key="x"/>
+		<item value="1147" key="width"/>
+		<item value="230" key="y"/>
+		<item value="712" key="height"/>
+>>>>>>> e2a65ebe988323f8840b547450e17d5b0f79db4c
 	</section>
 </section>

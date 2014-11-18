@@ -1,0 +1,52 @@
+package edu.csupomona.cs.cs356.assignment_2;
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.tree.*;
+public class MyTree extends JApplet
+{
+  JTree t;
+  JLabel l1;
+  String lang[]={"C","C++","JAVA","PYTHON","AJAX","PHP"};
+  public void init()
+  {
+    try
+    {
+     SwingUtilities.invokeAndWait(new Runnable() {
+       public void run()
+       {
+          makeGUI();
+       }
+    });
+    } catch(Exception e){
+       System.out.println("Sorry some error occured "+e);
+    }
+}
+private void makeGUI()
+{
+   DefaultMutableTreeNode top=new DefaultMutableTreeNode("Language");
+   DefaultMutableTreeNode a=new DefaultMutableTreeNode("Programming");
+   top.add(a);
+   DefaultMutableTreeNode a1=new DefaultMutableTreeNode("C");
+   a.add(a1);
+   DefaultMutableTreeNode a2=new DefaultMutableTreeNode("Java");
+   a.add(a2);
+   DefaultMutableTreeNode b=new DefaultMutableTreeNode("Web Based");
+   top.add(b);
+   DefaultMutableTreeNode b1=new DefaultMutableTreeNode("PHP");
+   b.add(b1);
+   DefaultMutableTreeNode b2=new DefaultMutableTreeNode("JSP");
+   b.add(b2);
+   t=new JTree(top);
+   JScrollPane scr=new JScrollPane(t);
+   add(scr);
+   setLayout(new  FlowLayout());
+   l1=new JLabel("Choose a language");
+   add(l1,BorderLayout.SOUTH);
+   t.addTreeSelectionListener(new TreeSelectionListener () {
+    public void valueChanged(TreeSelectionEvent ae) { 
+      l1.setText(ae.getPath()+" is selected");
+    }
+  });
+ }
+}

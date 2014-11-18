@@ -22,7 +22,10 @@ import javax.swing.tree.DefaultMutableTreeNode;
 
 import java.awt.Color;
 import java.io.IOException;
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+>>>>>>> e2a65ebe988323f8840b547450e17d5b0f79db4c
 
 import javax.swing.JTextArea;
 
@@ -39,8 +42,11 @@ public class AdminCP extends DefaultTreeCellRenderer{
 	private JButton btnAddGroup;
 	private static final AdminCP instance = new AdminCP();
 	protected String userID;
+<<<<<<< HEAD
 	protected GroupComposite rootGroup;
 	protected ArrayList<GroupComposite> newGroups;
+=======
+>>>>>>> e2a65ebe988323f8840b547450e17d5b0f79db4c
 	/**
 	 * Launch the application.
 	 */
@@ -136,8 +142,13 @@ public class AdminCP extends DefaultTreeCellRenderer{
 				super.paintComponent(g);
 			}
 		};
+<<<<<<< HEAD
 		rootGroup = new GroupComposite(rootNode.getUserObject().toString());
 		
+=======
+		GroupComposite group = new GroupComposite("Root");
+		group.add(group);
+>>>>>>> e2a65ebe988323f8840b547450e17d5b0f79db4c
 		tree.setCellRenderer(new DefaultTreeCellRenderer() {
             private Icon closedIcon = UIManager.getIcon("Tree.closedIcon");
             @Override
@@ -159,6 +170,7 @@ public class AdminCP extends DefaultTreeCellRenderer{
 		tree.setBackground(new Color(200, 100, 200, 200));
 		tree.setModel(treeModel); {
 			{
+<<<<<<< HEAD
 				btnAddGroup.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
@@ -172,6 +184,21 @@ public class AdminCP extends DefaultTreeCellRenderer{
 								newGroups.add(new GroupComposite(storeGroup));								
 								tree.setCellRenderer(new DefaultTreeCellRenderer() {
 						            private Icon closedIcon = UIManager.getIcon("Tree.closedIcon");						            
+=======
+				btnAddUser.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						
+						DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
+						DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
+						DefaultMutableTreeNode newNode = new DefaultMutableTreeNode (textAddUser.getText());
+						
+						if (selectedNode != null) {
+							if (e.getSource() == btnAddUser && !textAddUser.getText().trim().equals("")) {
+								storeUser = textAddUser.getText();
+								UserComposite.getInstance().add(storeUser);
+								tree.setCellRenderer(new DefaultTreeCellRenderer() {
+						            private Icon leafIcon = UIManager.getIcon("Tree.leafIcon");								        
+>>>>>>> e2a65ebe988323f8840b547450e17d5b0f79db4c
 						            @Override
 						            public Component getTreeCellRendererComponent(JTree tree, Object value,
 						                    boolean sel, boolean exp, boolean leaf, int row, boolean hasFocus) {
@@ -179,6 +206,7 @@ public class AdminCP extends DefaultTreeCellRenderer{
 						                    String s = rootNode.getUserObject().toString();
 						                    Component c = super.getTreeCellRendererComponent(
 						                        tree, value, sel, exp, leaf, row, hasFocus);                
+<<<<<<< HEAD
 						                    if (storeGroup.equals(s))              
 						                        setIcon(closedIcon);                       
 						                    return c;
@@ -189,11 +217,25 @@ public class AdminCP extends DefaultTreeCellRenderer{
 								JOptionPane.showMessageDialog(null, "Added Group: " + storeGroup);
 							} else {
 								JOptionPane.showMessageDialog(null, "Please enter a Group Name.");
+=======
+						                    if (storeUser.equals(s))              
+						                        setIcon(leafIcon);                       
+						                    return c;
+						                }
+						        });
+								
+								model.insertNodeInto(newNode, selectedNode, selectedNode.getChildCount());
+								model.reload();
+								JOptionPane.showMessageDialog(null, "Added User: " + storeUser);
+							} else {
+								JOptionPane.showMessageDialog(null, "Please enter a User Name.");
+>>>>>>> e2a65ebe988323f8840b547450e17d5b0f79db4c
 							}
 						} else {
 							JOptionPane.showMessageDialog(null, "Please select a folder to add to.");
 						}
 					}
+<<<<<<< HEAD
 
 				});
 				
@@ -218,6 +260,22 @@ public class AdminCP extends DefaultTreeCellRenderer{
 								}
 								tree.setCellRenderer(new DefaultTreeCellRenderer() {
 						            private Icon leafIcon = UIManager.getIcon("Tree.leafIcon");								        
+=======
+				});
+				btnAddGroup.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
+						DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
+						DefaultMutableTreeNode newNode = new DefaultMutableTreeNode (textAddGroup.getText());
+						
+						if (selectedNode != null) {
+							if (e.getSource() == btnAddGroup && !textAddGroup.getText().trim().equals("")) {
+								storeGroup = textAddGroup.getText();
+								group.add(new GroupComposite(storeGroup));
+								
+								tree.setCellRenderer(new DefaultTreeCellRenderer() {
+						            private Icon closedIcon = UIManager.getIcon("Tree.closedIcon");						            
+>>>>>>> e2a65ebe988323f8840b547450e17d5b0f79db4c
 						            @Override
 						            public Component getTreeCellRendererComponent(JTree tree, Object value,
 						                    boolean sel, boolean exp, boolean leaf, int row, boolean hasFocus) {
@@ -225,6 +283,7 @@ public class AdminCP extends DefaultTreeCellRenderer{
 						                    String s = rootNode.getUserObject().toString();
 						                    Component c = super.getTreeCellRendererComponent(
 						                        tree, value, sel, exp, leaf, row, hasFocus);                
+<<<<<<< HEAD
 						                    if (storeUser.equals(s))              
 						                        setIcon(leafIcon);                       
 						                    return c;
@@ -236,13 +295,31 @@ public class AdminCP extends DefaultTreeCellRenderer{
 								JOptionPane.showMessageDialog(null, "Added User: " + storeUser);
 							} else {
 								JOptionPane.showMessageDialog(null, "Please enter a User Name.");
+=======
+						                    if (storeGroup.equals(s))              
+						                        setIcon(closedIcon);                       
+						                    return c;
+						                }
+						        });
+								model.insertNodeInto(newNode, selectedNode, selectedNode.getChildCount());
+								model.reload();
+								group.print();
+								JOptionPane.showMessageDialog(null, "Added Group: " + storeGroup);
+							} else {
+								JOptionPane.showMessageDialog(null, "Please enter a Group Name.");
+>>>>>>> e2a65ebe988323f8840b547450e17d5b0f79db4c
 							}
 						} else {
 							JOptionPane.showMessageDialog(null, "Please select a folder to add to.");
 						}
 					}
+<<<<<<< HEAD
 				});
 				
+=======
+
+				});
+>>>>>>> e2a65ebe988323f8840b547450e17d5b0f79db4c
 			}
 
 		};

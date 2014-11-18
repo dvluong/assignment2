@@ -1,0 +1,12 @@
+package edu.csupomona.cs.cs356.assignment_2;
+
+public class GroupComposite implements Component{
+
+	@Override
+	public void add() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+}

@@ -2,7 +2,10 @@ AbstractTextEditor.Color.Background.SystemDefault=true
 AbstractTextEditor.Color.Foreground.SystemDefault=true
 AbstractTextEditor.Color.SelectionBackground.SystemDefault=true
 AbstractTextEditor.Color.SelectionForeground.SystemDefault=true
+<<<<<<< HEAD
 OccurrenceIndicationColor=153,181,217
+=======
+>>>>>>> e2a65ebe988323f8840b547450e17d5b0f79db4c
 eclipse.preferences.version=1
 htmlTagPairOccurrenceIndication=true
 htmlTagPairOccurrenceIndicationColor=127,127,127
