@@ -1,0 +1,13 @@
+package edu.csupomona.cs.cs356.assignment_2;
+
+import java.util.ArrayList;
+
+public class test {
+
+	public static void main(String[] args) {
+		ArrayList<GroupComposite> list = new ArrayList<GroupComposite>();
+		list.add(new GroupComposite("fuck"));
+		System.out.println(list.get(0));
+	}
+
+}

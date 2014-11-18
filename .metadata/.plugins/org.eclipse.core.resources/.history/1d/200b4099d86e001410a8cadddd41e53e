@@ -1,0 +1,17 @@
+package edu.csupomona.cs.cs356.assignment_2;
+
+import java.util.ArrayList;
+
+public class test {
+
+	public static void main(String[] args) {
+		ArrayList<GroupComposite> list = new ArrayList<GroupComposite>();
+		list.add(new GroupComposite("fuck"));
+		list.add(new GroupComposite("fuckfuck"));
+		list.add(new GroupComposite("fuckfuckfuck"));
+		for (int a = 0; a < list.size(); a++){
+			System.out.println(list.get(a).getGroup());
+		}
+	}
+
+}

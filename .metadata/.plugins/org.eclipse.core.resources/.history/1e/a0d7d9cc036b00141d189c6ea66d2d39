@@ -1,0 +1,329 @@
+package edu.csupomona.cs.cs356.assignment_2;
+
+import java.awt.EventQueue;
+import java.awt.Graphics;
+
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTree;
+import javax.swing.UIManager;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+
+import java.awt.Color;
+import java.io.IOException;
+import java.util.Observer;
+
+import javax.swing.JTextPane;
+import javax.swing.JTextArea;
+
+import java.awt.Toolkit;
+import java.awt.SystemColor;
+
+public class AdminCP {
+
+	private JFrame frame;
+	private String storeGroup;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) throws IOException {
+
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					AdminCP window = new AdminCP();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public AdminCP() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	@SuppressWarnings("serial")
+	private void initialize() {
+		frame = new JFrame();
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(
+				AdminCP.class.getResource("/image/naruto.jpg")));
+		frame.getContentPane().setBackground(new Color(204, 102, 204));
+		frame.setBackground(Color.CYAN);
+		frame.setBounds(100, 100, 930, 609);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		UIManager.put("Tree.rendererFillBackground", false);
+
+		JButton btnOpenUserView = new JButton("Open User View") {
+			@Override
+			protected void paintComponent(Graphics g) {
+				if (!isOpaque() && getBackground().getAlpha() < 255) {
+					g.setColor(getBackground());
+					g.fillRect(0, 0, getWidth(), getHeight());
+				}
+				super.paintComponent(g);
+			}
+		};
+		btnOpenUserView.setForeground(Color.BLACK);
+		btnOpenUserView.setContentAreaFilled(false);
+		btnOpenUserView.setBackground(new Color(213, 134, 145, 123));
+		btnOpenUserView.setBounds(271, 95, 313, 39);
+		frame.getContentPane().add(btnOpenUserView);
+
+		JButton btnUserTotal = new JButton("User Total") {
+			@Override
+			protected void paintComponent(Graphics g) {
+				if (!isOpaque() && getBackground().getAlpha() < 255) {
+					g.setColor(getBackground());
+					g.fillRect(0, 0, getWidth(), getHeight());
+				}
+				super.paintComponent(g);
+			}
+		};
+		btnUserTotal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnUserTotal.setForeground(Color.BLACK);
+		btnUserTotal.setContentAreaFilled(false);
+		btnUserTotal.setBackground(new Color(213, 134, 145, 123));
+		btnUserTotal.setBounds(270, 302, 156, 39);
+		frame.getContentPane().add(btnUserTotal);
+
+		JButton btnGroupTotal = new JButton("Group Total") {
+			@Override
+			protected void paintComponent(Graphics g) {
+				if (!isOpaque() && getBackground().getAlpha() < 255) {
+					g.setColor(getBackground());
+					g.fillRect(0, 0, getWidth(), getHeight());
+				}
+				super.paintComponent(g);
+			}
+		};
+		btnGroupTotal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnGroupTotal.setForeground(Color.BLACK);
+		btnGroupTotal.setContentAreaFilled(false);
+		btnGroupTotal.setBackground(new Color(213, 134, 145, 123));
+		btnGroupTotal.setBounds(428, 302, 156, 39);
+		frame.getContentPane().add(btnGroupTotal);
+		JButton btnTotalMsgs = new JButton("Total Messages") {
+			@Override
+			protected void paintComponent(Graphics g) {
+				if (!isOpaque() && getBackground().getAlpha() < 255) {
+					g.setColor(getBackground());
+					g.fillRect(0, 0, getWidth(), getHeight());
+				}
+				super.paintComponent(g);
+			}
+		};
+		btnTotalMsgs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnTotalMsgs.setForeground(Color.BLACK);
+		btnTotalMsgs.setContentAreaFilled(false);
+		btnTotalMsgs.setBackground(new Color(213, 134, 145, 123));
+		btnTotalMsgs.setBounds(270, 342, 156, 39);
+		frame.getContentPane().add(btnTotalMsgs);
+
+		JButton btnPositivePercentage = new JButton("Positive \rPercentage") {
+			@Override
+			protected void paintComponent(Graphics g) {
+				if (!isOpaque() && getBackground().getAlpha() < 255) {
+					g.setColor(getBackground());
+					g.fillRect(0, 0, getWidth(), getHeight());
+				}
+				super.paintComponent(g);
+			}
+		};
+		btnPositivePercentage.setForeground(Color.BLACK);
+		btnPositivePercentage.setContentAreaFilled(false);
+		btnPositivePercentage.setBackground(new Color(213, 134, 145, 123));
+		btnPositivePercentage.setBounds(428, 342, 156, 39);
+		frame.getContentPane().add(btnPositivePercentage);
+
+		JTextArea textAddGroup = new JTextArea();
+		textAddGroup.setBackground(Color.LIGHT_GRAY);
+		textAddGroup.setBounds(750, 58, 132, 22);
+		frame.getContentPane().add(textAddGroup);
+
+		JButton btnAddGroup = new JButton("Add Group") {
+			@Override
+			protected void paintComponent(Graphics g) {
+				if (!isOpaque() && getBackground().getAlpha() < 255) {
+					g.setColor(getBackground());
+					g.fillRect(0, 0, getWidth(), getHeight());
+				}
+				super.paintComponent(g);
+			}
+		};
+
+		btnAddGroup.setForeground(Color.BLACK);
+		btnAddGroup.setContentAreaFilled(false);
+		btnAddGroup.setBackground(new Color(213, 134, 145, 123));
+		btnAddGroup.setBounds(584, 50, 156, 39);
+		frame.getContentPane().add(btnAddGroup);
+
+		JTextArea textAddUser = new JTextArea();
+		textAddUser.setBackground(Color.LIGHT_GRAY);
+		textAddUser.setBounds(750, 22, 132, 22);
+		frame.getContentPane().add(textAddUser);
+
+		JButton btnAddUser = new JButton("Add User") {
+			@Override
+			protected void paintComponent(Graphics g) {
+				if (!isOpaque() && getBackground().getAlpha() < 255) {
+					g.setColor(getBackground());
+					g.fillRect(0, 0, getWidth(), getHeight());
+				}
+				super.paintComponent(g);
+			}
+		};
+		btnAddUser.setForeground(Color.BLACK);
+		btnAddUser.setContentAreaFilled(false);
+		btnAddUser.setBackground(new Color(213, 134, 145, 123));
+		btnAddUser.setBounds(584, 11, 156, 39);
+		frame.getContentPane().add(btnAddUser);
+
+		JTextArea textUserID = new JTextArea();
+		textUserID.setBackground(Color.LIGHT_GRAY);
+		textUserID.setBounds(438, 21, 132, 22);
+		frame.getContentPane().add(textUserID);
+
+		JButton btnUserID = new JButton("User Id") {
+			@Override
+			protected void paintComponent(Graphics g) {
+				if (!isOpaque() && getBackground().getAlpha() < 255) {
+					g.setColor(getBackground());
+					g.fillRect(0, 0, getWidth(), getHeight());
+				}
+				super.paintComponent(g);
+			}
+		};
+		btnUserID.setForeground(new Color(0, 0, 0));
+		btnUserID.setContentAreaFilled(false);
+		btnUserID.setBackground(new Color(213, 134, 145, 123));
+		btnUserID.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnUserID.setBounds(271, 11, 156, 39);
+		frame.getContentPane().add(btnUserID);
+
+		JTextArea textGroupID = new JTextArea();
+		textGroupID.setBackground(Color.LIGHT_GRAY);
+		textGroupID.setBounds(439, 60, 132, 22);
+		frame.getContentPane().add(textGroupID);
+
+		JButton btnGroupID = new JButton("Group Id") {
+			@Override
+			protected void paintComponent(Graphics g) {
+				if (!isOpaque() && getBackground().getAlpha() < 255) {
+					g.setColor(getBackground());
+					g.fillRect(0, 0, getWidth(), getHeight());
+				}
+				super.paintComponent(g);
+			}
+		};
+		btnGroupID.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnGroupID.setForeground(Color.BLACK);
+		btnGroupID.setContentAreaFilled(false);
+		btnGroupID.setBackground(new Color(213, 134, 145, 123));
+		btnGroupID.setBounds(271, 50, 156, 39);
+		frame.getContentPane().add(btnGroupID);
+		JTree tree = new JTree() {
+			@Override
+			protected void paintComponent(Graphics g) {
+				if (!isOpaque() && getBackground().getAlpha() < 255) {
+					g.setColor(getBackground());
+					g.fillRect(0, 0, getWidth(), getHeight());
+				}
+				super.paintComponent(g);
+			}
+		};
+		tree.setForeground(SystemColor.activeCaptionText);
+		tree.setOpaque(false);
+		tree.setBackground(new Color(255, 134, 145, 123));
+
+		tree.setModel(new DefaultTreeModel(new DefaultMutableTreeNode("Root") {
+			{
+				btnAddGroup.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
+						DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
+						DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) model.getRoot();
+						DefaultMutableTreeNode newNode = (DefaultMutableTreeNode) model.getRoot();
+						if (selectedNode != null) {
+							if (e.getSource() == btnAddGroup && !textAddGroup.getText().trim().equals("")) {
+								storeGroup = textAddGroup.getText();
+								root.add(new DefaultMutableTreeNode(storeGroup));
+								model.insertNodeInto(newNode, selectedNode, selectedNode.getChildCount());
+								model.reload();
+								// JOptionPane.showMessageDialog(null,
+								// "Added Group: " + storeGroup);
+							} else {
+								JOptionPane.showMessageDialog(null,
+										"Please enter a Group Name.");
+							}
+						}
+					}
+
+				});
+				// DefaultMutableTreeNode node_1;
+				// node_1 = new DefaultMutableTreeNode("colors");
+				// node_1.add(new DefaultMutableTreeNode("blue"));
+				// node_1.add(new DefaultMutableTreeNode("violet"));
+				// node_1.add(new DefaultMutableTreeNode("red"));
+				// node_1.add(new DefaultMutableTreeNode("yellow"));
+				// add(node_1);
+				// node_1 = new DefaultMutableTreeNode(storeGroup);
+				// node_1.add(new DefaultMutableTreeNode("tennis"));
+				// node_1.add(new DefaultMutableTreeNode("soccer"));
+				// node_1.add(new DefaultMutableTreeNode("football"));
+				// node_1.add(new DefaultMutableTreeNode("hockey"));
+				// add(node_1);
+				// node_1 = new DefaultMutableTreeNode("food");
+				// node_1.add(new DefaultMutableTreeNode("hot dogs"));
+				// node_1.add(new DefaultMutableTreeNode("pizza"));
+				// node_1.add(new DefaultMutableTreeNode("ravioli"));
+				// node_1.add(new DefaultMutableTreeNode("bananas"));
+				// add(node_1);
+			}
+
+		}));
+		tree.setBounds(9, 9, 251, 548);
+		frame.getContentPane().add(tree);
+
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(AdminCP.class
+				.getResource("/image/jibril3.jpg")));
+		label.setBounds(0, -1, 913, 571);
+		frame.getContentPane().add(label);
+	}
+}

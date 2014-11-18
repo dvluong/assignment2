@@ -1,0 +1,20 @@
+INDEX VERSION 1.127+C:\Users\Dabid\Documents\GitHub\assignment2\.metadata\.plugins\org.eclipse.jdt.core
+3979199014.index
+3680216941.index
+2519515603.index
+141777580.index
+312990884.index
+649836812.index
+1036784131.index
+4102616070.index
+1694049503.index
+3912272638.index
+1799180511.index
+3138343590.index
+3755311897.index
+537080750.index
+4271798703.index
+62973594.index
+3529204997.index
+3613905025.index
+891229049.index

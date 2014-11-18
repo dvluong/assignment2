@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Assginment2
+Bundle-SymbolicName: Assginment2
+Bundle-Version: 1.0.0.qualifier
+Export-Package: edu.csupomona.cs.cs356.assignment_2,
+ image
