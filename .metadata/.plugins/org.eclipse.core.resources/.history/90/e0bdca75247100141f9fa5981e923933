@@ -1,0 +1,18 @@
+package edu.csupomona.cs.cs356.assignment_2;
+
+public class test {
+
+	public static void main(String[] args) {
+		User user = new User("david");
+		user.addObserver(user);
+		User user1 = new User("sarmen");
+		user1.addObserver(user);
+		UserManager test = new UserManager();
+		user.followUser(user1);
+		user1.followUser(user);
+		test.add(user.getUser(), user);
+		System.out.println(test.getID(user.getUser()));
+		System.out.println(test.toString());
+	}
+
+}

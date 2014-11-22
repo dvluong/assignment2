@@ -3,6 +3,7 @@ package edu.csupomona.cs.cs356.assignment_2;
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Graphics;
+
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -11,13 +12,18 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTree;
 import javax.swing.UIManager;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.DefaultMutableTreeNode;
+
 import java.awt.Color;
 import java.io.IOException;
+
+
 import javax.swing.JTextArea;
 
 import java.awt.Toolkit;
@@ -32,10 +38,10 @@ public class AdminCP extends DefaultTreeCellRenderer{
 	private String storeUser;
 	private JButton btnAddGroup;
 	private static final AdminCP instance = new AdminCP();
-	protected String userID;
-
 	protected GroupComposite rootGroup;
-	
+	protected User user;
+	protected UserManager UM = new UserManager(); 
+	private UI ui;
 
 	/**
 	 * Launch the application.
@@ -46,7 +52,9 @@ public class AdminCP extends DefaultTreeCellRenderer{
 			public void run() {
 				try {
 					AdminCP window = new AdminCP();
+					window.initialize();
 					window.frame.setVisible(true);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -58,10 +66,13 @@ public class AdminCP extends DefaultTreeCellRenderer{
 	 * Create the application.
 	 */
 	public AdminCP() {
-		initialize();
+		//initialize();
 	}
 	public static AdminCP getInstance(){
 		return instance;
+	}
+	public UserManager getManager(){
+		return UM;
 	}
 	/**
 	 * Initialize the contents of the frame.
@@ -203,8 +214,9 @@ public class AdminCP extends DefaultTreeCellRenderer{
 						
 						if (selectedNode != null) {
 							if (e.getSource() == btnAddUser && !textAddUser.getText().trim().equals("")) {
-								storeUser = textAddUser.getText();								
-								rootGroup.add(new User(storeUser));															
+								storeUser = textAddUser.getText();
+								user = new User(storeUser);
+								rootGroup.add(new User(storeUser));									
 								tree.setCellRenderer(new DefaultTreeCellRenderer() {
 						            private Icon leafIcon = UIManager.getIcon("Tree.leafIcon");								        
 						            @Override
@@ -254,7 +266,10 @@ public class AdminCP extends DefaultTreeCellRenderer{
 				for (int a = 0; a < rootGroup.list.size(); a++){
 					
 				    if (selectedNode != null && selectedNode.getUserObject().toString().equals(rootGroup.list.get(a).toString())){
-				    	UI.getInstance().run();
+				    	UM.add(storeUser, user);
+				    	System.out.println(UM.getID("david"));
+				    	ui = new UI(UM, user);
+				    	ui.run();
 				    } else {
 				    	System.out.println("not working");
 				    }

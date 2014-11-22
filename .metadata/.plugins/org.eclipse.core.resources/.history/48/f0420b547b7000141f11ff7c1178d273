@@ -1,0 +1,49 @@
+package edu.csupomona.cs.cs356.assignment_2;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
+
+public class User extends Observable implements Component, Observer {
+
+	String user;
+	List<User> followers = new ArrayList<User>();
+	List<User> following = new ArrayList<User>();
+	List<String> tweet = new ArrayList<String>();
+	
+	public User(String newUser) {
+		user = newUser;
+	}
+
+	public String getUser() {
+		return user;
+	}
+	
+	public String toString(){
+		return user;
+	}
+	
+	public void setFollowers(User followers){
+		this.followers.add(followers);
+		notifyObservers();
+	}
+	
+	public void setFollowing(User follow){
+		
+	}
+	
+	public void setTweet(String tweets){
+		tweet.add(tweets);
+		setChanged();
+		notifyObservers(tweets);
+		clearChanged();
+	}
+	
+	public void update(Observable arg0, Object arg1) {
+		if (arg0 instanceof User){
+			followers.add((User) arg0);
+			System.out.println("Followed");
+		}
+	}
+}

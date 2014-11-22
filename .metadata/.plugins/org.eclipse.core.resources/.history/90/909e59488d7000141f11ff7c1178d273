@@ -1,0 +1,23 @@
+package edu.csupomona.cs.cs356.assignment_2;
+
+public class test {
+
+	public static void main(String[] args) {
+		User user = new User("david");
+		user.addObserver(user);
+		User user1 = new User("sarmen");
+		user1.addObserver(user);
+		//System.out.println("you did something");
+		user.followUser(user1.getUser());
+		user1.followUser(user.getUser());
+		System.out.println(user.followers.get(0));
+
+		if (user.followers.contains(user1.getUser()) && user1.followers.contains(user)){
+			user.setTweet("hi");
+		} else {
+			System.out.println("someone is stalking someone");
+		}
+		//user1.setTweet("hello");
+	}
+
+}

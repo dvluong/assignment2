@@ -6,7 +6,14 @@ import java.util.List;
 public class GroupComposite implements Component {
 	List<Component> list = new ArrayList<Component>();
 	String group;
-	List<GroupComposite> groups = new ArrayList<GroupComposite>();
+	private static final GroupComposite instance = new GroupComposite();
+	public GroupComposite(){
+		
+	}
+	
+	public static GroupComposite getInstance(){
+		return instance;
+	}
 	public GroupComposite(String newGroup) {
 		group = newGroup;
 	}
@@ -15,12 +22,8 @@ public class GroupComposite implements Component {
 		return group;
 	}
 
-	public void add(Component user) {
-		list.add(user);
-	}
-	
-	public void add(GroupComposite group){
-		groups.add(group);
+	public void add(Component component) {
+		list.add(component);
 	}
 
 }

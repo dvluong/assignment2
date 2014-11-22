@@ -1,0 +1,28 @@
+package edu.csupomona.cs.cs356.assignment_2;
+
+public class FollowerObserver implements Observer{
+	private String tweet;
+	private String user;
+
+	
+	
+	private Subject grabber;
+	
+	public FollowerObserver(Subject grabber){
+		this.grabber = grabber;
+		this.user = user;
+		
+		System.out.println("New Follower " + this.user);
+		grabber.register(this);
+	}
+	public void update(String user, String tweet) {
+		this.tweet = tweet;
+		this.user = user;
+		printTweets();
+	}
+	
+	public void printTweets(){
+		System.out.println(user + "\nTweeted: " + tweet);
+	}
+
+}
