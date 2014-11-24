@@ -142,7 +142,7 @@ public class UI {
 						if (temp.followers.contains(obj)){
 							temp.sendTweet(tweet);
 							//listT.addElement(tweet);
-							//manager.getUI(obj.getUser()).listT.addElement(temp.getUser() + " tweeted " + tweet);
+							manager.getUI(obj.getUser()).listT.addElement(temp.getUser() + " tweeted " + tweet);
 							//obj.update(temp, obj.getUser(), tweet, manager, listT);
 						}
 					}

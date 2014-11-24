@@ -102,7 +102,7 @@ public class UI {
 					temp.followUser(manager.getUser(userID));
 					manager.getUser(userID).addFollower(temp);
 					list.addElement(userID);
-					temp.addObserver(manager.getUser(userID));					
+					temp.addObserver(temp);					
 				}
 			}
 		});
@@ -141,9 +141,9 @@ public class UI {
 						//System.out.println(manager.getUIName(manager.getID(obj.getUser())));
 						if (temp.followers.contains(obj)){
 							temp.sendTweet(tweet);
-							//listT.addElement(tweet);
+							listT.addElement(tweet);
 							//manager.getUI(obj.getUser()).listT.addElement(temp.getUser() + " tweeted " + tweet);
-							//obj.update(temp, obj.getUser(), tweet, manager, listT);
+							obj.update(temp, obj.getUser(), tweet, manager);
 						}
 					}
 				}

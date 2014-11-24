@@ -20,10 +20,11 @@ public class test {
 		test.add("david", user);
 		
 		Iterator<User> it = user.followers.iterator();
+		int counter = 0;
 		while (it.hasNext()){
 			User obj = it.next();
 			System.out.println(obj.getUser());
-			if (user.followers.contains(obj)){
+			if (user.followers.get(counter).equals(obj)){
 				user.sendTweet("hi");
 			}
 		}

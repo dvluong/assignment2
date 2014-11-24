@@ -268,7 +268,7 @@ public class AdminCP extends DefaultTreeCellRenderer{
 		};
 		btnOpenUserView.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DefaultMutableTreeNode selectNode = (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
+	
 				for (int a = 0; a < rootGroup.list.size(); a++){					
 				    if (selectNode != null && selectNode.getUserObject().toString().equals(rootGroup.list.get(a).toString())){				    	
 				    	System.out.println(UM.getID(selectNode.getUserObject().toString()));
