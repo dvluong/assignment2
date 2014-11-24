@@ -1,16 +1,5 @@
 package edu.csupomona.cs.cs356.assignment_2;
-/**
- * CS 356: Objected Oriented Programming 
- * Professor: Yu Sun
- *
- * Project 2
- *
- * <The UserManager stores a list of users in a map with the key being 
- * of type String with the user's name. Also stores a map of the UI 
- * class with the key being of type String with the user's name.>
- *
- * David V Luong
- */
+
 import java.util.HashMap;
 import java.util.Map;
 

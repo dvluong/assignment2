@@ -1,15 +1,5 @@
 package edu.csupomona.cs.cs356.assignment_2;
-/**
- * CS 356: Objected Oriented Programming 
- * Professor: Yu Sun
- *
- * Project 2
- *
- * <Composite pattern. Also stores a list of components that contain User and
- * GroupComposite.>
- *
- * David V Luong
- */
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;

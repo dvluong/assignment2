@@ -1,16 +1,5 @@
 package edu.csupomona.cs.cs356.assignment_2;
-/**
- * CS 356: Objected Oriented Programming 
- * Professor: Yu Sun
- *
- * Project 2
- *
- * <The main menu for the Admin. Allows the Admin to add
- * new users to the JTree and opens the user view for the
- * selected user in the JTree. Implements Singleton Pattern.>
- *
- * David V Luong
- */
+
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Graphics;
@@ -32,6 +21,11 @@ import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import java.awt.Color;
+import java.io.IOException;
+
+
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.JTextArea;
 
@@ -55,19 +49,10 @@ public class AdminCP extends DefaultTreeCellRenderer{
 	
 
 	/**
-	 * Create the application.
+	 * Launch the application.
 	 */
-	public AdminCP() {
+	public static void main(String[] args) throws IOException {
 
-	}
-	public static AdminCP getInstance(){
-		return instance;
-	}
-	public UserManager getManager(){
-		return UM;
-	}
-	
-	protected void run(){
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -80,6 +65,19 @@ public class AdminCP extends DefaultTreeCellRenderer{
 				}
 			}
 		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public AdminCP() {
+		//initialize();
+	}
+	public static AdminCP getInstance(){
+		return instance;
+	}
+	public UserManager getManager(){
+		return UM;
 	}
 	/**
 	 * Initialize the contents of the frame.
@@ -268,15 +266,21 @@ public class AdminCP extends DefaultTreeCellRenderer{
 		};
 		btnOpenUserView.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-	
-				for (int a = 0; a < rootGroup.list.size(); a++){					
-				    if (selectNode != null && selectNode.getUserObject().toString().equals(rootGroup.list.get(a).toString())){				    	
-				    	System.out.println(UM.getID(selectNode.getUserObject().toString()));
-				    	ui = new UI(UM, user, selectNode);
-				    	UM.addUI(selectNode.getUserObject().toString(), ui);
-				    	ui.run();				    	
-				    } 
-				}		 
+				
+				selectNode = (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
+				ui = new UI(UM, user, selectNode);
+		    	UM.addUI(selectNode.getUserObject().toString(), ui);
+		    	ui.run();	
+//				for (int a = 0; a < rootGroup.list.size(); a++){					
+//				    if (selectNode != null && selectNode.getUserObject().toString().equals(rootGroup.list.get(a).toString())){				    	
+//				    	System.out.println(UM.getID(selectNode.getUserObject().toString()));
+//				    	ui = new UI(UM, user, selectNode);
+//				    	UM.addUI(selectNode.getUserObject().toString(), ui);
+//				    	ui.run();				    	
+//				    } else {
+//				    	System.out.println("not working");
+//				    }
+//				}		 
 			}
 
 		});

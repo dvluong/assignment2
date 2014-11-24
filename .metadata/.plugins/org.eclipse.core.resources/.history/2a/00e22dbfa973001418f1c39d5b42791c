@@ -1,14 +1,5 @@
 package edu.csupomona.cs.cs356.assignment_2;
-/**
- * CS 356: Objected Oriented Programming 
- * Professor: Yu Sun
- *
- * Project 2
- *
- * <The UI class allows the user to follow and tweet.>
- *
- * David V Luong
- */
+
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
@@ -29,27 +20,36 @@ import java.util.Iterator;
 public class UI {
 
 	protected JFrame frame;
+	//private static final UI instance = new UI();
 	protected UserManager manager;
 	protected User user;
 	protected DefaultMutableTreeNode selectNode;
 	protected DefaultListModel<String> listT = new DefaultListModel<String>();
 	protected JList<String> listTweets = new JList<String>(listT);
+	//private User temp;
 	/**
 	 * Launch the application.
 	 * @wbp.parser.entryPoint
 	 */
+	public static void main(String[] args) {
+		//run();
+	}
 
 	/**
 	 * Create the application.
 	 * @wbp.parser.entryPoint
 	 */
 	public UI(UserManager manager, User user, DefaultMutableTreeNode selectNode) {
-
+		//initialize();
 		this.manager = manager;
 		this.user = user;
 		this.selectNode = selectNode;
 	}
-		
+	
+	
+//	public static UI getInstance(){
+//		return instance;
+//	}	
 
 	/**
 	 * Initialize the contents of the frame.
@@ -115,6 +115,7 @@ public class UI {
 		
 		listFollowers.setBounds(10, 78, 414, 125);
 		frame.getContentPane().add(listFollowers);
+//		listT = new DefaultListModel<String>();
 		listT.addElement("News Feed: ");
 		
 		JTextArea textTweet = new JTextArea();
@@ -122,6 +123,7 @@ public class UI {
 		frame.getContentPane().add(textTweet);
 		
 	
+//		listTweets = new JList<String>(listT);
 		listTweets.setBounds(10, 280, 414, 169);
 		frame.getContentPane().add(listTweets);
 		

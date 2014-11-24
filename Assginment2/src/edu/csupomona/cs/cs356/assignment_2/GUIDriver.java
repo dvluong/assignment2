@@ -5,11 +5,14 @@ package edu.csupomona.cs.cs356.assignment_2;
  *
  * Project 2
  *
- * <Visitor pattern.>
+ * <Driver class.>
  *
  * David V Luong
  */
-public interface Visitor {
-	public int visitUser();
-	public int visitGroup();
+public class GUIDriver {
+
+	public static void main(String[] args) {
+		AdminCP.getInstance().run();
+	}
+
 }

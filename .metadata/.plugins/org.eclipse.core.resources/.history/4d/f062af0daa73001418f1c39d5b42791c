@@ -1,16 +1,5 @@
 package edu.csupomona.cs.cs356.assignment_2;
-/**
- * CS 356: Objected Oriented Programming 
- * Professor: Yu Sun
- *
- * Project 2
- *
- * <The main menu for the Admin. Allows the Admin to add
- * new users to the JTree and opens the user view for the
- * selected user in the JTree. Implements Singleton Pattern.>
- *
- * David V Luong
- */
+
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Graphics;
@@ -32,6 +21,7 @@ import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import java.awt.Color;
+import java.io.IOException;
 
 import javax.swing.JTextArea;
 

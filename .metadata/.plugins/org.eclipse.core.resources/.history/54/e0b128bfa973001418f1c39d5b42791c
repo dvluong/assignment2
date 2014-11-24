@@ -1,15 +1,7 @@
 package edu.csupomona.cs.cs356.assignment_2;
-/**
- * CS 356: Objected Oriented Programming 
- * Professor: Yu Sun
- *
- * Project 2
- *
- * <The user class stores a list of users and tweets. Implements Observer pattern.>
- *
- * David V Luong
- */
+
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
@@ -73,6 +65,8 @@ public class User extends Observable implements Component, Observer {
 			if (UM.getKeysArrayUI(follower)) {
 				if(UM.getUI(follower).listT == null){
 					UM.getUI(follower).listT = new DefaultListModel<String>();
+//					UM.getUI(user.getUser()).listT.addElement("News Feed");
+//					UM.getUI(follower).listT.addElement("News Feed: ");
 				}
 				if (UM.getUI(follower).listTweets == null){
 					UM.getUI(follower).listTweets = new JList<String>(UM.getUI(follower).listT);
@@ -85,7 +79,12 @@ public class User extends Observable implements Component, Observer {
 				UM.getUI(follower).listTweets = new JList<String>(UM.getUI(follower).listT);
 				UM.getUI(follower).listTweets.setModel(UM.getUI(follower).listT);
 				SwingUtilities.updateComponentTreeUI(UM.getUI(follower).frame);
-
+//				ui.listT.addElement(user + " tweeted: " + tweets);
+//				ui.listTweets = new JList<String>(listT);
+//				ui.listTweets.setModel(listT);
+//				ui.frame.revalidate();
+//				ui.frame.repaint();
+				//System.out.println(user + " tweeted: " + tweets);
 				System.out.println("this was called");
 			}
 

@@ -5,7 +5,9 @@ package edu.csupomona.cs.cs356.assignment_2;
  *
  * Project 2
  *
- * <The UI class allows the user to follow and tweet.>
+ * <The DFSA class has 6 different fields in order to store a set of states, a
+ * set of alphabets, final states, an initial state, and the transitions the FSA
+ * makes.>
  *
  * David V Luong
  */

@@ -1,0 +1,10 @@
+package edu.csupomona.cs.cs356.assignment_2;
+
+public class GUIDriver {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
