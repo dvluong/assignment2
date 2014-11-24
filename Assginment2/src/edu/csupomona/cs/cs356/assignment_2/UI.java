@@ -9,19 +9,27 @@ import javax.swing.JFrame;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.JList;
+import javax.swing.tree.DefaultMutableTreeNode;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.Iterator;
 
 
 
 public class UI {
 
-	private JFrame frame;
+	protected JFrame frame;
 	//private static final UI instance = new UI();
-	private UserManager man;
-	private User user;
+	protected UserManager manager;
+	protected User user;
+	protected DefaultMutableTreeNode selectNode;
+	protected DefaultListModel<String> listT = new DefaultListModel<String>();
+	protected JList<String> listTweets = new JList<String>(listT);
+	//private User temp;
 	/**
 	 * Launch the application.
+	 * @wbp.parser.entryPoint
 	 */
 	public static void main(String[] args) {
 		//run();
@@ -29,11 +37,13 @@ public class UI {
 
 	/**
 	 * Create the application.
+	 * @wbp.parser.entryPoint
 	 */
-	public UI(UserManager man, User user) {
+	public UI(UserManager manager, User user, DefaultMutableTreeNode selectNode) {
 		//initialize();
-		this.man = man;
+		this.manager = manager;
 		this.user = user;
+		this.selectNode = selectNode;
 	}
 	
 	
@@ -43,12 +53,13 @@ public class UI {
 
 	/**
 	 * Initialize the contents of the frame.
+	 * @wbp.parser.entryPoint
 	 */
 	protected void run(){
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					UI window = new UI(man, user);
+					UI window = new UI(manager, user, selectNode);
 					window.initialize();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
@@ -58,10 +69,14 @@ public class UI {
 		});
 	}
 
-	protected void initialize() {
-		
-		System.out.println(man.getID("david"));
-		frame = new JFrame(man.getID(user.getUser()));
+	/**
+	 * @wbp.parser.entryPoint
+	 */
+	protected void initialize() {				
+		frame = new JFrame(selectNode.getUserObject().toString());
+		frame.setName(selectNode.getUserObject().toString());
+
+		frame.setVisible(true);
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(
 				AdminCP.class.getResource("/image/naruto.jpg")));
 		frame.getContentPane().setBackground(new Color(0, 204, 255));
@@ -72,41 +87,74 @@ public class UI {
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(214, 21, 210, 33);
 		frame.getContentPane().add(textArea);
+		
+		DefaultListModel<String> list = new DefaultListModel<String>();
+						
 		JButton btnFollow = new JButton("Follow User");
 		btnFollow.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				User temp = null;
+				if (manager.getKeysArray(selectNode.getUserObject().toString())){
+					temp = manager.getUser(selectNode.getUserObject().toString());
+				}
 				if (e.getSource() == btnFollow){
-					
+					String userID = textArea.getText();
+					temp.followUser(manager.getUser(userID));
+					manager.getUser(userID).addFollower(temp);
+					list.addElement(userID);
+					temp.addObserver(temp);					
 				}
 			}
 		});
 		btnFollow.setBounds(10, 11, 194, 56);
 		frame.getContentPane().add(btnFollow);
 		
-
-		DefaultListModel<String> list = new DefaultListModel<String>();
-		list.addElement("List View (Current Following)");
+		list.addElement("List View (Current Following):");
 		
 		JList<String> listFollowers = new JList<String>(list);
 		
 		listFollowers.setBounds(10, 78, 414, 125);
 		frame.getContentPane().add(listFollowers);
+//		listT = new DefaultListModel<String>();
+		listT.addElement("News Feed: ");
 		
+		JTextArea textTweet = new JTextArea();
+		textTweet.setBounds(214, 226, 210, 33);
+		frame.getContentPane().add(textTweet);
+		
+	
+//		listTweets = new JList<String>(listT);
+		listTweets.setBounds(10, 280, 414, 169);
+		frame.getContentPane().add(listTweets);
 		
 		JButton btnTweet = new JButton("Tweet");
 		btnTweet.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
+				User temp = null;
+				if (manager.getKeysArray(selectNode.getUserObject().toString())){
+					temp = manager.getUser(selectNode.getUserObject().toString());
+				}
+				if(e.getSource() == btnTweet){
+					String tweet = textTweet.getText();
+					Iterator<User> it = temp.followers.iterator();
+					while (it.hasNext()){
+						User obj = it.next();
+						//System.out.println(obj.getUser());
+						//System.out.println(manager.getUIName(manager.getID(obj.getUser())));
+						if (temp.followers.contains(obj)){
+							temp.sendTweet(tweet);
+							listT.addElement(tweet);
+							//manager.getUI(obj.getUser()).listT.addElement(temp.getUser() + " tweeted " + tweet);
+							obj.update(temp, obj.getUser(), tweet, manager);
+						}
+					}
+				}
 			}
 		});
 		btnTweet.setBounds(10, 214, 194, 55);
 		frame.getContentPane().add(btnTweet);
 		
-		JList<String> listTweets = new JList<String>();
-		listTweets.setBounds(10, 280, 414, 169);
-		frame.getContentPane().add(listTweets);
-		
-		JTextArea textArea_1 = new JTextArea();
-		textArea_1.setBounds(214, 226, 210, 33);
-		frame.getContentPane().add(textArea_1);
 	}
+	
+
 }

@@ -5,12 +5,14 @@
 <fullyQualifiedTypeName name="edu.csupomona.cs.cs356.assignment_2.FollowerObserver"/>
 <fullyQualifiedTypeName name="java.util.Observer"/>
 <fullyQualifiedTypeName name="edu.csupomona.cs.cs356.assignment_2.GroupComposite"/>
-<fullyQualifiedTypeName name="javax.swing.DefaultListModel"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="edu.csupomona.cs.cs356.assignment_2.UI"/>
 <fullyQualifiedTypeName name="edu.csupomona.cs.cs356.assignment_2.UserManager"/>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="edu.csupomona.cs.cs356.assignment_2.AdminCP"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="edu.csupomona.cs.cs356.assignment_2.User"/>
+<fullyQualifiedTypeName name="javax.swing.DefaultListModel"/>
+<fullyQualifiedTypeName name="javax.swing.JList"/>
+<fullyQualifiedTypeName name="javax.swing.SwingUtilities"/>
 </qualifiedTypeNameHistroy>

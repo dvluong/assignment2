@@ -24,6 +24,9 @@ import java.awt.Color;
 import java.io.IOException;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.swing.JTextArea;
 
 import java.awt.Toolkit;
@@ -41,7 +44,9 @@ public class AdminCP extends DefaultTreeCellRenderer{
 	protected GroupComposite rootGroup;
 	protected User user;
 	protected UserManager UM = new UserManager(); 
+	protected DefaultMutableTreeNode selectNode;
 	private UI ui;
+	
 
 	/**
 	 * Launch the application.
@@ -216,7 +221,8 @@ public class AdminCP extends DefaultTreeCellRenderer{
 							if (e.getSource() == btnAddUser && !textAddUser.getText().trim().equals("")) {
 								storeUser = textAddUser.getText();
 								user = new User(storeUser);
-								rootGroup.add(new User(storeUser));									
+								rootGroup.add(new User(storeUser));	
+								UM.add(storeUser, user);
 								tree.setCellRenderer(new DefaultTreeCellRenderer() {
 						            private Icon leafIcon = UIManager.getIcon("Tree.leafIcon");								        
 						            @Override
@@ -261,20 +267,22 @@ public class AdminCP extends DefaultTreeCellRenderer{
 		btnOpenUserView.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
-				
-				for (int a = 0; a < rootGroup.list.size(); a++){
-					
-				    if (selectedNode != null && selectedNode.getUserObject().toString().equals(rootGroup.list.get(a).toString())){
-				    	UM.add(storeUser, user);
-				    	System.out.println(UM.getID("david"));
-				    	ui = new UI(UM, user);
-				    	ui.run();
-				    } else {
-				    	System.out.println("not working");
-				    }
-				}		 
+				selectNode = (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
+				ui = new UI(UM, user, selectNode);
+		    	UM.addUI(selectNode.getUserObject().toString(), ui);
+		    	ui.run();	
+//				for (int a = 0; a < rootGroup.list.size(); a++){					
+//				    if (selectNode != null && selectNode.getUserObject().toString().equals(rootGroup.list.get(a).toString())){				    	
+//				    	System.out.println(UM.getID(selectNode.getUserObject().toString()));
+//				    	ui = new UI(UM, user, selectNode);
+//				    	UM.addUI(selectNode.getUserObject().toString(), ui);
+//				    	ui.run();				    	
+//				    } else {
+//				    	System.out.println("not working");
+//				    }
+//				}		 
 			}
+
 		});
 		
 		
@@ -296,6 +304,8 @@ public class AdminCP extends DefaultTreeCellRenderer{
 		};
 		btnUserTotal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				user.accept(rootGroup);
+				JOptionPane.showMessageDialog(null, "User total = " + rootGroup.visitUser());
 			}
 		});
 		btnUserTotal.setForeground(Color.BLACK);
@@ -316,6 +326,8 @@ public class AdminCP extends DefaultTreeCellRenderer{
 		};
 		btnGroupTotal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				user.accept(rootGroup);
+				JOptionPane.showMessageDialog(null, "User total = " + rootGroup.visitGroup());
 			}
 		});
 		btnGroupTotal.setForeground(Color.BLACK);
@@ -335,6 +347,7 @@ public class AdminCP extends DefaultTreeCellRenderer{
 		};
 		btnTotalMsgs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				JOptionPane.showMessageDialog(null, "Total messages = " + user.tweet.size());
 			}
 		});
 		btnTotalMsgs.setForeground(Color.BLACK);
